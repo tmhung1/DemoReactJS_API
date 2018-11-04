@@ -10,7 +10,7 @@ class App extends Component {
           <div className="App">
                     <Menu/>
                     <div className="container">
-                      <div class="row"> 
+                      <div className="row"> 
                         <Switch>
                           {this.showContent(routes)}
                         </Switch>

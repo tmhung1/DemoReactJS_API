@@ -1,18 +1,13 @@
 import React, { Component } from 'react';
-import ProductItem from './../ProductItem/ProductItem';
 class ProductList extends Component {
-  constructor(props)
-  {
-    super(props);
-  }
     render() {
         return (
-                 <div class="panel panel-primary">
-                      <div class="panel-heading">
-                        <h3 class="panel-title">Danh sách sản phẩm</h3>
+                 <div className="panel panel-primary">
+                      <div className="panel-heading">
+                        <h3 className="panel-title">Danh sách sản phẩm</h3>
                       </div>
-                      <div class="panel-body">
-                        <table class="table table-bordered table-hover">
+                      <div className="panel-body">
+                        <table className="table table-bordered table-hover">
                           <thead>
                             <tr>
                               <th>STT</th>

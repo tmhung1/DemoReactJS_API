@@ -36,7 +36,7 @@ class Menu extends Component {
         return (
             <div>
                 <div className="navbar navbar-default">
-                    <a className="navbar-brand">API</a>
+                
                     <ul className="nav navbar-nav">
                         {this.showMenus(menus)}
                     </ul>

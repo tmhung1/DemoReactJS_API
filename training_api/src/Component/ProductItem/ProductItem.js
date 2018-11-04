@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-
+import {Link} from 'react-router-dom';
 class ProductItem extends Component {
-    constructor(props)
-    {
-        super(props);
+    onDelete = (id) =>{
+        if(confirm('Bạn có chắc chắn muốn xóa ?'))  { //eslint-disable-line
+           this.props.onDelete(id);
+        }
     }
     render() {
         const {product,index} = this.props;
@@ -17,14 +18,14 @@ class ProductItem extends Component {
                 <td>{product.price}</td>
                 <td>
                 
-                <span class={`label label-${statusClass}`}>{statusName}</span>
+                <span className={`label label-${statusClass}`}>{statusName}</span>
                 
                 </td>
                 <td>
                 
-                <button type="button" class="btn btn-success">Sửa</button>
+                <Link to={`product/${product.id}/edit`} className="btn btn-success">Sửa</Link>
                 
-                <button type="button" class="btn btn-danger">Xóa</button>
+                <button type="button" className="btn btn-danger" onClick={()=>this.onDelete(product.id)}>Xóa</button>
                 
                 </td>
           </tr>

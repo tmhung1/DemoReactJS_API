@@ -1,31 +1,32 @@
 import * as types from './../Contants/ActionTypes';
 
-let initialState = [
-    {
-        id : 1,
-        name : 'iphone X',
-        price : 1222,
-        status : true
-    },
-    {
-        id : 2,
-        name : 'iphone XMax',
-        price : 1444,
-        status : false
-    },
-    {
-        id : 3,
-        name : 'iphone 8',
-        price : 1222,
-        status : true
-    }
-];
-
+let initialState = [];
+var findIndex = (products, id) =>{
+    let result = -1;
+    products.forEach((product,index)=>{
+        if(product.id === id) 
+        result = index;
+    })
+    return result;
+}
 const myReducer = (state = initialState, action) => {
-   
+    let index = -1;
+    let {id} = action;
     switch (action.type) {
-        case types.LIST_ALL : 
-            return state;
+        case types.LIST_ALL :
+            state = action.products; 
+            return [...state];
+        case types.DELETE_PRODUCT : 
+            index = findIndex(state,id);
+            state.splice(index,1);
+            return [...state];
+        case types.ADD_PRODUCT :
+            state.push(action.products); 
+            return [...state];
+        case types.UPDATE_PRODUCT:
+            index = findIndex(state,action.product.id);
+            state[index] = action.product;
+            return [...state];
         default: return [...state];
     }
 }
